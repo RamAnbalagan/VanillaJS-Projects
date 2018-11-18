@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> STAR WIDGET FORM</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <style>
+            form {
+                width: 70%;
+                margin: 0 auto;
+            }
+            label, input, textarea {
+                display: block;
+                width: 100%;
+            } 
+            textarea {
+                min-height: 250px;
+            }
+            ul{
+                padding: 0;
+                margin: 0;
+            }
+            ul li{
+                list-style-type: none;
+                display: inline-block;
+                margin: 10px;
+                color : white;
+                text-shadow: 2px 2px 7px grey;
+                font-size: 30px;
+            }
+            ul li:hover {
+                color:yellow;
+            }
+            ul li.active , ul li.secondary-active {
+                color: yellow;
+            }
+
+            input[type="radio"] {
+                display: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1> STAR WIDGET FORM</h1>
+        <form>
+            <ul>
+                <li>
+                    <label for="rating1">
+                        <i class="fas fa-star"></i>
+                    </label>
+                    <input type="radio" name="ratings" id="rating1" value="1"\>
+                </li>
+                <li>
+                    <label for="rating2">
+                        <i class="fas fa-star"></i>
+                    </label>
+                    <input type="radio" name="ratings" id="rating2" value="2"\>
+                </li>
+                <li>
+                    <label for="rating3">
+                        <i class="fas fa-star"></i>
+                    </label>
+                    <input type="radio" name="ratings" id="rating3" value="3"\>
+                </li>
+                <li>
+                    <label for="rating4">
+                        <i class="fas fa-star"></i>
+                    </label>
+                    <input type="radio" name="ratings" id="rating4" value="4"\>
+                </li>
+                <li>
+                    <label for="rating5">
+                        <i class="fas fa-star"></i>
+                    </label>
+                    <input type="radio" name="ratings" id="rating5" value="5"\>
+                </li>
+            </ul>
+            <label> Name</label>
+            <input type="text" name="name" placeholder="Enter Name" />
+            <label> Title</label>
+            <input type="text" name="title" placeholder="Enter Title" />
+            <label> Description</label>
+            <textarea name="desc"> </textarea>
+            <!--   submit will have the radio value of the rating selected -->
+            <input type="submit" value="Submit">
+        </form>
+        <script>
+            const listItems = document.querySelectorAll('li');
+
+            function handleClick(e) {
+                let clickedLi = e.currentTarget;
+                listItems.forEach(li => {
+                    li.classList.remove('active');
+                }); 
+                // wasn't able to fix this
+                for(listItem of listItems){
+                    if(listItem === clickedLi) {
+                        break;
+                    }else {
+                        listItem.classList.add('active');
+                    }
+                }
+                clickedLi.classList.add("active");
+            }
+            listItems.forEach(li => li.addEventListener('click', handleClick));
+        </script>
+    </body>
+</html>
